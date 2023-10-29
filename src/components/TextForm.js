@@ -27,7 +27,7 @@ export default function TextForm(props) {
       <div className={`container text-start bg-${props.mode === "light" ? "danger" : "dark-subtle"} bg-opacity-25 text-${props.mode === "light" ? "dark" : "primary"}`}>
         <h3>Your data</h3>
         {/* In next line \s* need to add before \n+ for words count as it count new word for entering in new line and hit space make calculation wrong */}
-        <p className='fst-italic fw-semibold'>{text.split("\n").length} lines and {text.trim() === "" ? "0":text.replace(/(\n+|\s+)/g, " ").trim().split(" ").length} words and {text.length} characters</p>
+        <p className='fst-italic fw-semibold'>{text.split("\n").length} lines and {text.trim() === "" ? "0":text.replace(/(\s*\n+|\s+)/g, " ").trim().split(" ").length} words and {text.length} characters</p>
         <p className='fst-italic fw-semibold'>You can read all in {0.008 * text.split(" ").length} minits</p>
         <p>
           <span className='d-block fs-3 fw-bold'>Preview : </span>
