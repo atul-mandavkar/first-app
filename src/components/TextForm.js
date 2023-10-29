@@ -14,6 +14,9 @@ export default function TextForm(props) {
   }
   const [text, setText] = useState("Enter text here");
   
+  window.onload = function() {
+    document.getElementById("exampleFormControlTextarea1").focus();
+  };
   return (
     <div>
       <div className={`container bg-${props.mode === "light"? "light" : "secondary" } p-3 text-start text-${props.mode === "light" ? "dark" : "light"}`}>{/*style={{textAlign: "left", backgroundColor: "lightGray", padding: 2}} */}
