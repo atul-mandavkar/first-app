@@ -2,11 +2,24 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
+  let var1 = "";
   const handleUpClick = () => {
     setText(text.toUpperCase());
   }
   const handleLwClick = () => {
     setText(text.toLowerCase());
+  }
+  const handleClClick = () => {
+    setText("");
+    document.getElementById("exampleFormControlTextarea1").focus();
+  }
+  const handleElClick = () => {
+    var1 = [];
+    const var2 = text.split(/\n/g);
+    //console.log(var2);
+    var1 = var2.filter((element) => element.trim() !== '');
+    //console.log(var1);
+    setText(var1.join("\n"))
   }
 
   const handleTextChange = (event) => {
@@ -26,6 +39,8 @@ export default function TextForm(props) {
         </div>
         <button type="button" className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2`} onClick={handleUpClick}>Upper Case</button>
         <button type="button" className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2`} onClick={handleLwClick}>Lower Case</button>
+        <button type="button" className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2`} onClick={handleClClick}>Clear All</button>
+        <button type="button" className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2`} onClick={handleElClick}>Empty Line Remove</button>
       </div>
       <div className={`container text-start bg-${props.mode === "light" ? "danger" : "dark-subtle"} bg-opacity-25 text-${props.mode === "light" ? "dark" : "primary"}`}>
         <h3>Your data</h3>
