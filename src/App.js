@@ -36,8 +36,8 @@ function App() {
       <Alert alert={alert} />
       <div className="container">
         <TextForm heading="Enter text below to analyze" mode={mode} />
-  </div>
-  {/*<About />*/}
+      </div>
+      {/*<About />*/}
     </div>
   );
 }

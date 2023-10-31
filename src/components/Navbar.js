@@ -13,7 +13,7 @@ export default function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <a className="nav-link" aria-current="page" href="/">Home</a>
               <a className="nav-link" href="/">Features</a>
               <a className="nav-link" href="/">{props.aboutInfo}</a>
               <a className="nav-link disabled" href="/" aria-disabled="true">Disabled</a>

@@ -14,12 +14,21 @@ export default function TextForm(props) {
     document.getElementById("exampleFormControlTextarea1").focus();
   }
   const handleElClick = () => {
-    var1 = [];
-    const var2 = text.split(/\n/g);
-    //console.log(var2);
-    var1 = var2.filter((element) => element.trim() !== '');
+    var1 = text.split(/\n/g);
+    //console.log(var1);
+    var1 = var1.filter((element) => element.trim() !== '');
     //console.log(var1);
     setText(var1.join("\n"))
+  }
+  const handleSprClick = () => {
+    var1 = text.split("\n");
+    var1 = var1.map((ele)=> ele.trim().replace(/\s\s+/g, " "));
+    setText(var1.join("\n"));
+  }
+  const handleDblClick = () => {
+    var1 = text.split(/\n/g);
+    var1 = var1.filter((ele,ind)=> var1.indexOf(ele) === ind );
+    setText(var1.join("\n"));
   }
 
   const handleTextChange = (event) => {
@@ -37,10 +46,14 @@ export default function TextForm(props) {
         <div className="mb-3">
           <textarea className={`form-control bg-${props.mode === "light" ? "warning-subtle" : "dark"} p-3 text-start text-${props.mode === "light" ? "dark" : "light"}`} id="exampleFormControlTextarea1" value={text} onChange={handleTextChange} rows="9" style={{backgroundColor: "lightYellow"}}></textarea>
         </div>
-        <button type="button" disabled={text.length===0} className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleUpClick}>Upper Case</button>
-        <button type="button" disabled={text.length===0} className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleLwClick}>Lower Case</button>
-        <button type="button" disabled={text.length===0} className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleClClick}>Clear All</button>
-        <button type="button" disabled={text.length===0} className={`btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleElClick}>Empty Line Remove</button>
+        <div className='d-flex justify-content-center flex-wrap'>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleUpClick}>Upper Case</button>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleLwClick}>Lower Case</button>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleClClick}>Clear All</button>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleElClick}>Empty Lines</button>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleSprClick}>Extra spaces</button>
+          <button type="button" disabled={text.length===0} className={`rounded-pill btn btn-${props.mode === "light" ? "dark" : "light"} mx-2 my-2`} onClick={handleDblClick}>Dublicate Lines</button>
+        </div>
       </div>
       <div className={`container text-start bg-${props.mode === "light" ? "danger" : "dark-subtle"} bg-opacity-25 text-${props.mode === "light" ? "dark" : "primary"}`}>
         <h3>Your data</h3>
