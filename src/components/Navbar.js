@@ -1,5 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 export default function Navbar(props) {
@@ -7,16 +8,16 @@ export default function Navbar(props) {
     <div>
       <nav className={`navbar navbar-expand-lg bg-${props.mode === "light" ? "info-subtle" : "body-secondary"}`} data-bs-theme={`${props.mode === "light" ? "light" : "dark"}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">{props.title}</a>
+          <Link className="navbar-brand" to="/">{props.title}</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" aria-current="page" href="/">Home</a>
-              <a className="nav-link" href="/">Features</a>
-              <a className="nav-link" href="/">{props.aboutInfo}</a>
-              <a className="nav-link disabled" href="/" aria-disabled="true">Disabled</a>
+              <Link className="nav-link" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link" to="/">Features</Link>
+              <Link className="nav-link" to="/about">{props.aboutInfo}</Link>
+              <Link className="nav-link disabled" to="/" aria-disabled="true">Disabled</Link>
             </div>
           </div>
           <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
